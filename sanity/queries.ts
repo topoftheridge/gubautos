@@ -49,11 +49,11 @@ export async function getAllVehicles(): Promise<Vehicle[]> {
 
 export async function getVehicleBySlug(slug: string): Promise<Vehicle | null> {
   return client.fetch(
-    `*[_type == "vehicle" && slug.current == $slug][0] { ${VEHICLE_FIELDS} }`,
+    `*[_type == "vehicle" && (slug.current == $slug || _id == $slug)][0] { ${VEHICLE_FIELDS} }`,
     { slug }
   );
 }
 
-export async function getAllVehicleSlugs(): Promise<{ slug: { current: string } }[]> {
-  return client.fetch(`*[_type == "vehicle"] { slug }`);
+export async function getAllVehicleSlugs(): Promise<{ _id: string; slug?: { current: string } }[]> {
+  return client.fetch(`*[_type == "vehicle"] { _id, slug }`);
 }

@@ -15,8 +15,8 @@ function estimateMonthly(price: number) {
 }
 
 export async function generateStaticParams() {
-  const slugs = await getAllVehicleSlugs();
-  return slugs.filter(s => s.slug?.current).map(s => ({ slug: s.slug.current }));
+  const vehicles = await getAllVehicleSlugs();
+  return vehicles.map(v => ({ slug: v.slug?.current ?? v._id }));
 }
 
 export default async function VehicleDetailPage({ params }: { params: Promise<{ slug: string }> }) {
