@@ -26,7 +26,7 @@ function VehicleCard({ car }: { car: Vehicle }) {
     <Link href={`/inventory/${slug}`} className="block group">
       <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all border border-gray-100">
         {/* Photo */}
-        <div className="relative overflow-hidden bg-[#1a1a1a]" style={{ aspectRatio: "16/10" }}>
+        <div className="relative overflow-hidden bg-[#0f172a]" style={{ aspectRatio: "16/10" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={imgSrc}
@@ -40,7 +40,7 @@ function VehicleCard({ car }: { car: Vehicle }) {
             <div className="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded uppercase">Sold</div>
           )}
           {car.featured && car.status === "Available" && (
-            <div className="absolute top-2 left-2 bg-[#FFC107] text-black text-xs font-bold px-2 py-0.5 rounded uppercase">Featured</div>
+            <div className="absolute top-2 left-2 bg-[#1E3A8A] text-black text-xs font-bold px-2 py-0.5 rounded uppercase">Featured</div>
           )}
           {/* Photo count */}
           {car.images && car.images.length > 1 && (
@@ -76,7 +76,7 @@ function VehicleCard({ car }: { car: Vehicle }) {
               <p className="text-xl font-black text-black">{formatPrice(car.price)}</p>
               <p className="text-xs text-gray-400 mt-0.5">~${estimateMonthly(car.price)}/mo est.</p>
             </div>
-            <span className="bg-[#FFC107] hover:bg-yellow-400 text-black text-xs font-bold px-4 py-2 rounded uppercase tracking-wide transition-colors">
+            <span className="bg-[#1E3A8A] hover:bg-blue-600 text-black text-xs font-bold px-4 py-2 rounded uppercase tracking-wide transition-colors">
               Details
             </span>
           </div>
@@ -98,7 +98,7 @@ export default async function InventoryPage() {
         <div className="bg-white border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-6 py-4">
             <p className="text-sm text-gray-400">
-              <Link href="/" className="text-[#c9a000] hover:underline">GubAutos</Link>
+              <Link href="/" className="text-[#1d4ed8] hover:underline">GubMotors</Link>
               {" / "}
               <span>Inventory</span>
             </p>

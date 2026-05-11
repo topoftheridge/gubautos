@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "GubAutos | Quality Used Cars — Freehold, NJ",
-  description: "GubAutos is a trusted used car dealership in Freehold, NJ. 200+ vehicles, fast financing approval, all credit welcome. Drive home today.",
+  title: "GubMotors | Quality Used Cars — Freehold, NJ",
+  description: "GubMotors is a trusted used car dealership in Freehold, NJ. 200+ vehicles, fast financing approval, all credit welcome. Drive home today.",
 };
 
 export default function RootLayout({

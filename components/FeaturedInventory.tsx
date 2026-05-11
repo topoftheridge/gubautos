@@ -16,7 +16,7 @@ function CarCard({ car }: { car: Vehicle }) {
   return (
     <Link href={`/inventory/${slug}`} className="block group">
       <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all border border-gray-100">
-        <div className="relative overflow-hidden bg-[#1a1a1a]">
+        <div className="relative overflow-hidden bg-[#0f172a]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={imgSrc}
@@ -24,12 +24,12 @@ function CarCard({ car }: { car: Vehicle }) {
             className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300"
           />
           {car.drivetrain && (
-            <div className="absolute top-2 left-2 bg-[#FFC107] text-black text-xs font-bold px-2 py-0.5 rounded">
+            <div className="absolute top-2 left-2 bg-[#1E3A8A] text-black text-xs font-bold px-2 py-0.5 rounded">
               {car.drivetrain}
             </div>
           )}
           {car.featured && (
-            <div className="absolute top-2 right-2 bg-black text-[#FFC107] text-xs font-bold px-2 py-0.5 rounded">
+            <div className="absolute top-2 right-2 bg-black text-[#1E3A8A] text-xs font-bold px-2 py-0.5 rounded">
               FEATURED
             </div>
           )}
@@ -46,7 +46,7 @@ function CarCard({ car }: { car: Vehicle }) {
           </div>
           <div className="flex items-center justify-between pt-3 border-t border-gray-100">
             <div className="text-xl font-black text-black">{formatPrice(car.price)}</div>
-            <span className="bg-[#FFC107] hover:bg-yellow-400 text-black text-xs font-bold px-4 py-2 rounded transition-colors uppercase tracking-wide">
+            <span className="bg-[#1E3A8A] hover:bg-blue-600 text-black text-xs font-bold px-4 py-2 rounded transition-colors uppercase tracking-wide">
               View
             </span>
           </div>
@@ -76,9 +76,9 @@ export default async function FeaturedInventory() {
         <div className="flex items-end justify-between mb-10">
           <div>
             <h2 className="text-3xl font-bold text-black mb-2">Our Inventory</h2>
-            <div className="h-1 w-32 bg-[#FFC107] rounded" />
+            <div className="h-1 w-32 bg-[#1E3A8A] rounded" />
           </div>
-          <Link href="/inventory" className="text-sm font-semibold text-[#c9a000] hover:underline hidden md:block">
+          <Link href="/inventory" className="text-sm font-semibold text-[#1d4ed8] hover:underline hidden md:block">
             View All {cars.length} Vehicles →
           </Link>
         </div>
@@ -88,7 +88,7 @@ export default async function FeaturedInventory() {
         </div>
 
         <div className="text-center mt-10">
-          <Link href="/inventory" className="inline-block border-2 border-[#FFC107] text-[#c9a000] font-bold px-10 py-3 rounded-lg hover:bg-[#FFC107] hover:text-black transition-colors">
+          <Link href="/inventory" className="inline-block border-2 border-[#1E3A8A] text-[#1d4ed8] font-bold px-10 py-3 rounded-lg hover:bg-[#1E3A8A] hover:text-black transition-colors">
             View All {cars.length} Vehicles →
           </Link>
         </div>

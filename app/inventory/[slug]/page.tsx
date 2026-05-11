@@ -80,9 +80,9 @@ function VehicleDetail({ car }: { car: Vehicle }) {
         {/* Breadcrumb */}
         <div className="bg-white border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-6 py-3 text-sm text-gray-400">
-            <Link href="/" className="text-[#c9a000] hover:underline">GubAutos</Link>
+            <Link href="/" className="text-[#1d4ed8] hover:underline">GubMotors</Link>
             {" / "}
-            <Link href="/inventory" className="text-[#c9a000] hover:underline">Inventory</Link>
+            <Link href="/inventory" className="text-[#1d4ed8] hover:underline">Inventory</Link>
             {" / "}
             <span>Used {car.year} {car.make} {car.model}</span>
           </div>
@@ -96,7 +96,7 @@ function VehicleDetail({ car }: { car: Vehicle }) {
 
               {/* Gallery: main image + vertical strip */}
               <div className="flex gap-3">
-                <div className="flex-1 bg-[#1a1a1a] rounded-xl overflow-hidden relative" style={{ minHeight: 380 }}>
+                <div className="flex-1 bg-[#0f172a] rounded-xl overflow-hidden relative" style={{ minHeight: 380 }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={allImgUrls[activeIdx]}
@@ -128,7 +128,7 @@ function VehicleDetail({ car }: { car: Vehicle }) {
                       <div key={i} onClick={() => setActiveIdx(i)} className="relative shrink-0 cursor-pointer">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src={t} alt={`Photo ${i + 1}`}
-                          className={`w-full h-16 object-cover rounded-lg border-2 transition-all ${activeIdx === i ? "border-[#FFC107] opacity-100" : "border-transparent opacity-55 hover:opacity-80"}`} />
+                          className={`w-full h-16 object-cover rounded-lg border-2 transition-all ${activeIdx === i ? "border-[#1E3A8A] opacity-100" : "border-transparent opacity-55 hover:opacity-80"}`} />
                         {i === 3 && thumbUrls.length > 4 && (
                           <div className="absolute inset-0 bg-black/60 rounded-lg flex items-center justify-center text-white text-xs font-bold">
                             +{thumbUrls.length - 4} more
@@ -143,7 +143,7 @@ function VehicleDetail({ car }: { car: Vehicle }) {
               {/* Title */}
               <div className="mt-6">
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="bg-[#FFC107] text-black text-xs font-bold px-2.5 py-1 rounded uppercase tracking-wide">
+                  <span className="bg-[#1E3A8A] text-black text-xs font-bold px-2.5 py-1 rounded uppercase tracking-wide">
                     {car.condition || "Pre-Owned"}
                   </span>
                   {car.stockNumber && <span className="text-sm text-gray-400">Stock # {car.stockNumber}</span>}
@@ -169,7 +169,7 @@ function VehicleDetail({ car }: { car: Vehicle }) {
               {details.length > 0 && (
                 <div className="mt-8">
                   <h2 className="text-xl font-bold text-black mb-1">Vehicle Information</h2>
-                  <div className="h-1 w-14 bg-[#FFC107] rounded mb-4" />
+                  <div className="h-1 w-14 bg-[#1E3A8A] rounded mb-4" />
                   <div className="bg-white rounded-xl shadow-sm overflow-hidden">
                     <div className="grid grid-cols-1 sm:grid-cols-2">
                       {details.map((d, i) => (
@@ -188,12 +188,12 @@ function VehicleDetail({ car }: { car: Vehicle }) {
               {car.features && car.features.length > 0 && (
                 <div className="mt-8">
                   <h2 className="text-xl font-bold text-black mb-1">Features & Options</h2>
-                  <div className="h-1 w-14 bg-[#FFC107] rounded mb-4" />
+                  <div className="h-1 w-14 bg-[#1E3A8A] rounded mb-4" />
                   <div className="bg-white rounded-xl shadow-sm p-6">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-8">
                       {car.features.map((f) => (
                         <div key={f} className="flex items-center gap-2 text-sm text-gray-700">
-                          <span className="text-[#FFC107] font-black text-base">&#10003;</span>
+                          <span className="text-[#1E3A8A] font-black text-base">&#10003;</span>
                           {f}
                         </div>
                       ))}
@@ -206,7 +206,7 @@ function VehicleDetail({ car }: { car: Vehicle }) {
               {car.description && (
                 <div className="mt-8">
                   <h2 className="text-xl font-bold text-black mb-1">Description</h2>
-                  <div className="h-1 w-14 bg-[#FFC107] rounded mb-4" />
+                  <div className="h-1 w-14 bg-[#1E3A8A] rounded mb-4" />
                   <div className="bg-white rounded-xl shadow-sm p-6">
                     <p className="text-gray-600 text-sm leading-relaxed whitespace-pre-line">{car.description}</p>
                   </div>
@@ -214,40 +214,40 @@ function VehicleDetail({ car }: { car: Vehicle }) {
               )}
 
               {/* Contact Form */}
-              <div id="contact-form" className="mt-8 bg-[#1a1a1a] rounded-2xl p-8 text-white">
+              <div id="contact-form" className="mt-8 bg-[#0f172a] rounded-2xl p-8 text-white">
                 <h2 className="text-2xl font-black mb-1">Interested in this vehicle?</h2>
-                <div className="h-1 w-14 bg-[#FFC107] rounded mb-5" />
+                <div className="h-1 w-14 bg-[#1E3A8A] rounded mb-5" />
                 <p className="text-gray-400 text-sm mb-6">Fill out the form and we&apos;ll get back to you within the hour.</p>
                 <form className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs text-gray-400 mb-1 uppercase tracking-wide">First Name</label>
-                      <input type="text" className="w-full bg-[#222] border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#FFC107]" placeholder="John" />
+                      <input type="text" className="w-full bg-[#1e3a5f] border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#1E3A8A]" placeholder="John" />
                     </div>
                     <div>
                       <label className="block text-xs text-gray-400 mb-1 uppercase tracking-wide">Last Name</label>
-                      <input type="text" className="w-full bg-[#222] border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#FFC107]" placeholder="Smith" />
+                      <input type="text" className="w-full bg-[#1e3a5f] border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#1E3A8A]" placeholder="Smith" />
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs text-gray-400 mb-1 uppercase tracking-wide">Phone</label>
-                      <input type="tel" className="w-full bg-[#222] border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#FFC107]" placeholder="(555) 000-0000" />
+                      <input type="tel" className="w-full bg-[#1e3a5f] border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#1E3A8A]" placeholder="(555) 000-0000" />
                     </div>
                     <div>
                       <label className="block text-xs text-gray-400 mb-1 uppercase tracking-wide">Email</label>
-                      <input type="email" className="w-full bg-[#222] border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#FFC107]" placeholder="john@email.com" />
+                      <input type="email" className="w-full bg-[#1e3a5f] border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#1E3A8A]" placeholder="john@email.com" />
                     </div>
                   </div>
                   <div>
                     <label className="block text-xs text-gray-400 mb-1 uppercase tracking-wide">Message</label>
-                    <textarea rows={3} className="w-full bg-[#222] border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#FFC107] resize-none"
+                    <textarea rows={3} className="w-full bg-[#1e3a5f] border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#1E3A8A] resize-none"
                       defaultValue={`I'm interested in the ${car.year} ${car.make} ${car.model}. Please contact me.`} />
                   </div>
-                  <button type="submit" className="w-full bg-[#FFC107] hover:bg-yellow-400 text-black font-black py-4 rounded-lg text-base transition-colors uppercase tracking-wide">
+                  <button type="submit" className="w-full bg-[#1E3A8A] hover:bg-blue-600 text-black font-black py-4 rounded-lg text-base transition-colors uppercase tracking-wide">
                     Send Message
                   </button>
-                  <p className="text-center text-xs text-gray-500">By submitting you agree to be contacted by GubAutos.</p>
+                  <p className="text-center text-xs text-gray-500">By submitting you agree to be contacted by GubMotors.</p>
                 </form>
               </div>
             </div>
@@ -288,7 +288,7 @@ function VehicleDetail({ car }: { car: Vehicle }) {
 
                   {/* Location */}
                   <div className="flex items-center gap-2 text-sm text-gray-500 mb-5 pb-4 border-b border-gray-100">
-                    <svg className="w-4 h-4 text-[#FFC107] shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-4 h-4 text-[#1E3A8A] shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                     </svg>
                     <span>482 Rt-9 South, Freehold, NJ</span>
@@ -297,27 +297,27 @@ function VehicleDetail({ car }: { car: Vehicle }) {
                   {/* CTAs */}
                   <div className="space-y-3">
                     <a href="tel:+17325550192"
-                      className="flex items-center justify-center gap-2 w-full bg-[#FFC107] hover:bg-yellow-400 text-black font-bold py-3.5 rounded-lg text-sm transition-colors uppercase tracking-wide">
+                      className="flex items-center justify-center gap-2 w-full bg-[#1E3A8A] hover:bg-blue-600 text-black font-bold py-3.5 rounded-lg text-sm transition-colors uppercase tracking-wide">
                       Unlock Manager&apos;s Special
                     </a>
                     <a href="#contact-form"
-                      className="flex items-center justify-center gap-2 w-full border border-gray-300 hover:border-[#FFC107] bg-white text-black font-bold py-3.5 rounded-lg text-sm transition-colors">
+                      className="flex items-center justify-center gap-2 w-full border border-gray-300 hover:border-[#1E3A8A] bg-white text-black font-bold py-3.5 rounded-lg text-sm transition-colors">
                       Get Approved
                     </a>
                     <a href="#contact-form"
-                      className="flex items-center justify-center gap-2 w-full border border-gray-300 hover:border-[#FFC107] bg-white text-black font-bold py-3.5 rounded-lg text-sm transition-colors">
+                      className="flex items-center justify-center gap-2 w-full border border-gray-300 hover:border-[#1E3A8A] bg-white text-black font-bold py-3.5 rounded-lg text-sm transition-colors">
                       Schedule a Test Drive
                     </a>
                   </div>
                 </div>
 
                 {/* Financing teaser */}
-                <div className="bg-[#1a1a1a] rounded-xl p-5 text-white">
+                <div className="bg-[#0f172a] rounded-xl p-5 text-white">
                   <h3 className="font-bold text-sm mb-2">All Credit Welcome</h3>
                   <p className="text-gray-400 text-xs mb-4 leading-relaxed">
                     Bad credit, no credit, first-time buyer — 40+ lenders competing for your business.
                   </p>
-                  <a href="#contact-form" className="block text-center bg-[#FFC107] hover:bg-yellow-400 text-black font-bold py-2.5 rounded-lg text-sm transition-colors">
+                  <a href="#contact-form" className="block text-center bg-[#1E3A8A] hover:bg-blue-600 text-black font-bold py-2.5 rounded-lg text-sm transition-colors">
                     Pre-Qualify — It&apos;s Free
                   </a>
                 </div>
@@ -325,17 +325,17 @@ function VehicleDetail({ car }: { car: Vehicle }) {
                 {/* Dealer card */}
                 <div className="bg-white rounded-xl shadow-sm p-5 border border-gray-100">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-full border-2 border-[#FFC107] bg-[#1a1a1a] flex items-center justify-center shrink-0">
-                      <span className="text-[#FFC107] font-black text-xs">GA</span>
+                    <div className="w-10 h-10 rounded-full border-2 border-[#1E3A8A] bg-[#0f172a] flex items-center justify-center shrink-0">
+                      <span className="text-[#1E3A8A] font-black text-xs">GM</span>
                     </div>
                     <div>
-                      <p className="font-bold text-black text-sm">GubAutos</p>
+                      <p className="font-bold text-black text-sm">GubMotors</p>
                       <p className="text-gray-400 text-xs">Freehold, NJ · 5.0 ★★★★★</p>
                     </div>
                   </div>
                   <div className="space-y-1.5 text-gray-600 text-xs">
                     <p>482 Rt-9 South, Freehold, NJ 07728</p>
-                    <p><a href="tel:+17325550192" className="hover:text-[#c9a000]">(732) 555-0192</a></p>
+                    <p><a href="tel:+17325550192" className="hover:text-[#1d4ed8]">(732) 555-0192</a></p>
                     <p>Mon–Fri 9AM–7PM &middot; Sat 9AM–6PM &middot; Sun 11AM–4PM</p>
                   </div>
                 </div>
