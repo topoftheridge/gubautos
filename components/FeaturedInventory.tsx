@@ -24,7 +24,7 @@ function CarCard({ car }: { car: Vehicle }) {
             className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300"
           />
           {car.drivetrain && (
-            <div className="absolute top-2 left-2 bg-[#1E3A8A] text-black text-xs font-bold px-2 py-0.5 rounded">
+            <div className="absolute top-2 left-2 bg-[#1E3A8A] text-white text-xs font-bold px-2 py-0.5 rounded">
               {car.drivetrain}
             </div>
           )}
@@ -46,7 +46,7 @@ function CarCard({ car }: { car: Vehicle }) {
           </div>
           <div className="flex items-center justify-between pt-3 border-t border-gray-100">
             <div className="text-xl font-black text-black">{formatPrice(car.price)}</div>
-            <span className="bg-[#1E3A8A] hover:bg-blue-600 text-black text-xs font-bold px-4 py-2 rounded transition-colors uppercase tracking-wide">
+            <span className="bg-[#1E3A8A] hover:bg-blue-700 text-white text-xs font-bold px-4 py-2 rounded transition-colors uppercase tracking-wide">
               View
             </span>
           </div>
@@ -88,7 +88,7 @@ export default async function FeaturedInventory() {
         </div>
 
         <div className="text-center mt-10">
-          <Link href="/inventory" className="inline-block border-2 border-[#1E3A8A] text-[#1d4ed8] font-bold px-10 py-3 rounded-lg hover:bg-[#1E3A8A] hover:text-black transition-colors">
+          <Link href="/inventory" className="inline-block border-2 border-[#1E3A8A] text-[#1d4ed8] font-bold px-10 py-3 rounded-lg hover:bg-[#1E3A8A] hover:text-white transition-colors">
             View All {cars.length} Vehicles →
           </Link>
         </div>

@@ -143,7 +143,7 @@ function VehicleDetail({ car }: { car: Vehicle }) {
               {/* Title */}
               <div className="mt-6">
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="bg-[#1E3A8A] text-black text-xs font-bold px-2.5 py-1 rounded uppercase tracking-wide">
+                  <span className="bg-[#1E3A8A] text-white text-xs font-bold px-2.5 py-1 rounded uppercase tracking-wide">
                     {car.condition || "Pre-Owned"}
                   </span>
                   {car.stockNumber && <span className="text-sm text-gray-400">Stock # {car.stockNumber}</span>}
@@ -244,7 +244,7 @@ function VehicleDetail({ car }: { car: Vehicle }) {
                     <textarea rows={3} className="w-full bg-[#1e3a5f] border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#1E3A8A] resize-none"
                       defaultValue={`I'm interested in the ${car.year} ${car.make} ${car.model}. Please contact me.`} />
                   </div>
-                  <button type="submit" className="w-full bg-[#1E3A8A] hover:bg-blue-600 text-black font-black py-4 rounded-lg text-base transition-colors uppercase tracking-wide">
+                  <button type="submit" className="w-full bg-[#1E3A8A] hover:bg-blue-700 text-white font-black py-4 rounded-lg text-base transition-colors uppercase tracking-wide">
                     Send Message
                   </button>
                   <p className="text-center text-xs text-gray-500">By submitting you agree to be contacted by GubMotors.</p>
@@ -297,7 +297,7 @@ function VehicleDetail({ car }: { car: Vehicle }) {
                   {/* CTAs */}
                   <div className="space-y-3">
                     <a href="tel:+17325550192"
-                      className="flex items-center justify-center gap-2 w-full bg-[#1E3A8A] hover:bg-blue-600 text-black font-bold py-3.5 rounded-lg text-sm transition-colors uppercase tracking-wide">
+                      className="flex items-center justify-center gap-2 w-full bg-[#1E3A8A] hover:bg-blue-700 text-white font-bold py-3.5 rounded-lg text-sm transition-colors uppercase tracking-wide">
                       Unlock Manager&apos;s Special
                     </a>
                     <a href="#contact-form"
@@ -317,7 +317,7 @@ function VehicleDetail({ car }: { car: Vehicle }) {
                   <p className="text-gray-400 text-xs mb-4 leading-relaxed">
                     Bad credit, no credit, first-time buyer — 40+ lenders competing for your business.
                   </p>
-                  <a href="#contact-form" className="block text-center bg-[#1E3A8A] hover:bg-blue-600 text-black font-bold py-2.5 rounded-lg text-sm transition-colors">
+                  <a href="#contact-form" className="block text-center bg-[#1E3A8A] hover:bg-blue-700 text-white font-bold py-2.5 rounded-lg text-sm transition-colors">
                     Pre-Qualify — It&apos;s Free
                   </a>
                 </div>

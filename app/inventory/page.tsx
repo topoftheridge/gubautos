@@ -40,7 +40,7 @@ function VehicleCard({ car }: { car: Vehicle }) {
             <div className="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded uppercase">Sold</div>
           )}
           {car.featured && car.status === "Available" && (
-            <div className="absolute top-2 left-2 bg-[#1E3A8A] text-black text-xs font-bold px-2 py-0.5 rounded uppercase">Featured</div>
+            <div className="absolute top-2 left-2 bg-[#1E3A8A] text-white text-xs font-bold px-2 py-0.5 rounded uppercase">Featured</div>
           )}
           {/* Photo count */}
           {car.images && car.images.length > 1 && (
@@ -76,7 +76,7 @@ function VehicleCard({ car }: { car: Vehicle }) {
               <p className="text-xl font-black text-black">{formatPrice(car.price)}</p>
               <p className="text-xs text-gray-400 mt-0.5">~${estimateMonthly(car.price)}/mo est.</p>
             </div>
-            <span className="bg-[#1E3A8A] hover:bg-blue-600 text-black text-xs font-bold px-4 py-2 rounded uppercase tracking-wide transition-colors">
+            <span className="bg-[#1E3A8A] hover:bg-blue-700 text-white text-xs font-bold px-4 py-2 rounded uppercase tracking-wide transition-colors">
               Details
             </span>
           </div>

@@ -50,7 +50,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-6 text-center text-xs text-gray-600">
+        <div className="border-t border-white/10 pt-6 text-center text-xs text-gray-400">
           &copy; {new Date().getFullYear()} GubMotors. All rights reserved. &middot; Used Car Dealer — Freehold, NJ
         </div>
       </div>

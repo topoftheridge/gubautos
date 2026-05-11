@@ -20,7 +20,7 @@ export default function Financing() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="#contact"
-                className="bg-[#1E3A8A] hover:bg-blue-600 text-black font-bold px-8 py-4 rounded text-sm text-center transition-colors uppercase tracking-wide">
+                className="bg-[#1E3A8A] hover:bg-blue-700 text-white font-bold px-8 py-4 rounded text-sm text-center transition-colors uppercase tracking-wide">
                 Apply Now — It&apos;s Free
               </a>
               <a href="#contact"

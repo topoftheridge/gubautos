@@ -55,7 +55,7 @@ export default function Contact() {
           <h3 className="text-3xl font-black mb-3">Ready to Drive Home Today?</h3>
           <p className="text-gray-400 mb-6 text-lg">Stop by or call us. Same-day approval available.</p>
           <a href="tel:+17325550192"
-            className="inline-block bg-[#1E3A8A] hover:bg-blue-600 text-black font-black px-10 py-4 rounded-lg text-xl transition-colors">
+            className="inline-block bg-[#1E3A8A] hover:bg-blue-700 text-white font-black px-10 py-4 rounded-lg text-xl transition-colors">
             Call (732) 555-0192
           </a>
         </div>
