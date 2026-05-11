@@ -73,3 +73,30 @@ export async function getVehicleBySlug(slug: string): Promise<Vehicle | null> {
 export async function getAllVehicleSlugs(): Promise<{ _id: string; slug?: { current: string } }[]> {
   return client.fetch(`*[_type == "vehicle"] { _id, slug }`);
 }
+
+export type BodyStyleCount = { bodyStyle: string; count: number };
+
+export async function getBodyStyleCounts(): Promise<BodyStyleCount[]> {
+  // Get all vehicles and count by bodyStyle
+  const vehicles: { bodyStyle?: string }[] = await client.fetch(
+    `*[_type == "vehicle"] { bodyStyle }`
+  );
+  const counts: Record<string, number> = {};
+  for (const v of vehicles) {
+    const key = v.bodyStyle || "Other";
+    counts[key] = (counts[key] || 0) + 1;
+  }
+  return Object.entries(counts)
+    .map(([bodyStyle, count]) => ({ bodyStyle, count }))
+    .sort((a, b) => b.count - a.count);
+}
+
+export async function getVehiclesByFilter(bodyStyle?: string): Promise<Vehicle[]> {
+  const filter = bodyStyle
+    ? `*[_type == "vehicle" && bodyStyle == $bodyStyle]`
+    : `*[_type == "vehicle"]`;
+  return client.fetch(
+    `${filter} | order(featured desc, _createdAt desc) { ${VEHICLE_FIELDS} }`,
+    bodyStyle ? { bodyStyle } : {}
+  );
+}
