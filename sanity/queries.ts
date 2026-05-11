@@ -8,6 +8,7 @@ export type Vehicle = {
   model: string;
   trim?: string;
   price: number;
+  cashDiscount?: number;
   mileage: number;
   drivetrain?: string;
   transmission?: string;
@@ -30,7 +31,7 @@ export type Vehicle = {
 };
 
 const VEHICLE_FIELDS = `
-  _id, slug, year, make, model, trim, price, mileage, drivetrain, transmission,
+  _id, slug, year, make, model, trim, price, cashDiscount, mileage, drivetrain, transmission,
   exteriorColor, interiorColor, mpgCity, mpgHwy, vin, stockNumber, bodyStyle,
   engine, fuelType, doors, cylinders, status, featured, images, description, features
 `;
