@@ -32,7 +32,7 @@ export async function getFeaturedVehicles(): Promise<Vehicle[]> {
 
 export async function getAllVehicles(): Promise<Vehicle[]> {
   return client.fetch(
-    `*[_type == "vehicle" && status == "Available"] | order(_createdAt desc) {
+    `*[_type == "vehicle"] | order(featured desc, _createdAt desc) {
       _id, year, make, model, trim, price, mileage, drivetrain, transmission,
       exteriorColor, mpgCity, mpgHwy, bodyStyle, status, featured, images, description, features
     }`
