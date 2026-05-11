@@ -1,12 +1,12 @@
 const styles = [
-  { label: "SUVs", icon: "🚙", count: 48 },
-  { label: "Sedans", icon: "🚗", count: 35 },
-  { label: "Trucks", icon: "🛻", count: 22 },
-  { label: "Luxury", icon: "✨", count: 18 },
-  { label: "AWD / 4WD", icon: "🏔️", count: 31 },
-  { label: "Under $15K", icon: "💰", count: 27 },
-  { label: "Vans & Minivans", icon: "🚐", count: 12 },
-  { label: "Convertibles", icon: "🌤️", count: 8 },
+  { label: "SUVs", count: 48 },
+  { label: "Sedans", count: 35 },
+  { label: "Trucks", count: 22 },
+  { label: "Luxury", count: 18 },
+  { label: "AWD / 4WD", count: 31 },
+  { label: "Under $15K", count: 27 },
+  { label: "Vans & Minivans", count: 12 },
+  { label: "Convertibles", count: 8 },
 ];
 
 export default function BrowseByStyle() {
@@ -20,12 +20,8 @@ export default function BrowseByStyle() {
 
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
           {styles.map((s) => (
-            <a
-              key={s.label}
-              href="#inventory"
-              className="flex flex-col items-center justify-center gap-2 py-6 px-3 rounded-xl border border-gray-200 hover:border-[#FFC107] hover:shadow-md transition-all group text-center"
-            >
-              <span className="text-4xl group-hover:scale-110 transition-transform">{s.icon}</span>
+            <a key={s.label} href="/inventory"
+              className="flex flex-col items-center justify-center gap-2 py-6 px-3 rounded-xl border border-gray-200 hover:border-[#FFC107] hover:shadow-md transition-all group text-center">
               <span className="text-sm font-semibold text-gray-800 group-hover:text-[#c9a000]">{s.label}</span>
               <span className="text-xs text-gray-400">{s.count} vehicles</span>
             </a>

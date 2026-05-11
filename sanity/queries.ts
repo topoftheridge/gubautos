@@ -2,27 +2,39 @@ import { client } from "./client";
 
 export type Vehicle = {
   _id: string;
-  slug: { current: string };
+  slug?: { current: string };
   year: number;
   make: string;
   model: string;
   trim?: string;
+  condition?: string;
+  bodyStyle?: string;
+  stockNumber?: string;
+  vin?: string;
   price: number;
   cashDiscount?: number;
   mileage: number;
+  passengers?: number;
   drivetrain?: string;
+  engine?: string;
+  horsepower?: string;
+  torque?: string;
+  cylinders?: number;
   transmission?: string;
-  exteriorColor?: string;
-  interiorColor?: string;
+  fuelType?: string;
+  fuelCapacity?: string;
   mpgCity?: number;
   mpgHwy?: number;
-  vin?: string;
-  stockNumber?: string;
-  bodyStyle?: string;
-  engine?: string;
-  fuelType?: string;
+  exteriorColor?: string;
+  interiorColor?: string;
+  gvwr?: string;
+  dimensions?: string;
+  wheelbase?: string;
   doors?: number;
-  cylinders?: number;
+  frontWheel?: string;
+  rearWheel?: string;
+  frontTire?: string;
+  rearTire?: string;
   status: string;
   featured: boolean;
   images?: Array<{ asset: { _ref: string } }>;
@@ -31,9 +43,12 @@ export type Vehicle = {
 };
 
 const VEHICLE_FIELDS = `
-  _id, slug, year, make, model, trim, price, cashDiscount, mileage, drivetrain, transmission,
-  exteriorColor, interiorColor, mpgCity, mpgHwy, vin, stockNumber, bodyStyle,
-  engine, fuelType, doors, cylinders, status, featured, images, description, features
+  _id, slug, year, make, model, trim, condition, bodyStyle, stockNumber, vin,
+  price, cashDiscount, mileage, passengers, drivetrain, engine, horsepower, torque,
+  cylinders, transmission, fuelType, fuelCapacity, mpgCity, mpgHwy,
+  exteriorColor, interiorColor, gvwr, dimensions, wheelbase, doors,
+  frontWheel, rearWheel, frontTire, rearTire,
+  status, featured, images, description, features
 `;
 
 export async function getFeaturedVehicles(): Promise<Vehicle[]> {

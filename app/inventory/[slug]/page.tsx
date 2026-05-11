@@ -1,12 +1,11 @@
 "use client";
-import { use } from "react";
+import { use, useState, useEffect } from "react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import PromoBanner from "@/components/PromoBanner";
 import Footer from "@/components/Footer";
-import { getVehicleBySlug, getAllVehicleSlugs } from "@/sanity/queries";
+import { getVehicleBySlug } from "@/sanity/queries";
 import { urlBuilder } from "@/sanity/imageUrl";
 import type { Vehicle } from "@/sanity/queries";
 
@@ -32,31 +31,44 @@ function VehicleDetail({ car }: { car: Vehicle }) {
   const amountFinanced = car.cashDiscount ? car.price - car.cashDiscount : car.price;
   const monthly = estimateMonthly(amountFinanced);
 
+  // Key specs row
   const specs = [
-    { icon: "🏎", label: "Mileage", value: car.mileage ? formatMileage(car.mileage) + " mi" : null },
-    { icon: "⛽", label: "Fuel", value: car.fuelType },
-    { icon: "⚙️", label: "Transmission", value: car.transmission },
-    { icon: "🛞", label: "Drivetrain", value: car.drivetrain },
-    { icon: "🔧", label: "Engine", value: car.engine },
-    { icon: "📍", label: "MPG", value: car.mpgCity && car.mpgHwy ? `${car.mpgCity} City / ${car.mpgHwy} Hwy` : null },
-  ].filter(s => s.value);
-
-  const details = [
-    { label: "Body Style", value: car.bodyStyle },
-    { label: "Exterior Color", value: car.exteriorColor },
-    { label: "Interior Color", value: car.interiorColor },
-    { label: "Engine", value: car.engine },
-    { label: "Cylinders", value: car.cylinders?.toString() },
+    { label: "Mileage", value: car.mileage ? formatMileage(car.mileage) + " mi" : null },
+    { label: "Fuel Type", value: car.fuelType },
     { label: "Transmission", value: car.transmission },
     { label: "Drivetrain", value: car.drivetrain },
-    { label: "Fuel Type", value: car.fuelType },
-    { label: "MPG City", value: car.mpgCity?.toString() },
-    { label: "MPG Highway", value: car.mpgHwy?.toString() },
-    { label: "Doors", value: car.doors?.toString() },
-    { label: "Mileage", value: car.mileage ? formatMileage(car.mileage) + " mi" : null },
-    { label: "VIN", value: car.vin },
+    { label: "Engine", value: car.engine },
+    { label: "MPG", value: car.mpgCity && car.mpgHwy ? `${car.mpgCity} City / ${car.mpgHwy} Hwy` : null },
+  ].filter(s => s.value);
+
+  // Full details table — all fields
+  const details = [
+    { label: "Condition", value: car.condition },
+    { label: "Body Type", value: car.bodyStyle },
+    { label: "Trim", value: car.trim },
     { label: "Stock #", value: car.stockNumber },
-    { label: "Status", value: car.status },
+    { label: "VIN", value: car.vin },
+    { label: "Exterior Color", value: car.exteriorColor },
+    { label: "Interior Color", value: car.interiorColor },
+    { label: "Passengers", value: car.passengers?.toString() },
+    { label: "Drivetrain", value: car.drivetrain },
+    { label: "Engine", value: car.engine },
+    { label: "Horsepower", value: car.horsepower },
+    { label: "Torque", value: car.torque },
+    { label: "Cylinders", value: car.cylinders?.toString() },
+    { label: "Transmission", value: car.transmission },
+    { label: "Fuel Type", value: car.fuelType },
+    { label: "Fuel Capacity", value: car.fuelCapacity },
+    { label: "Fuel Economy", value: car.mpgCity && car.mpgHwy ? `${car.mpgCity} City / ${car.mpgHwy} Hwy` : null },
+    { label: "Mileage", value: car.mileage ? formatMileage(car.mileage) + " mi" : null },
+    { label: "Doors", value: car.doors?.toString() },
+    { label: "GVWR", value: car.gvwr },
+    { label: "Dimensions", value: car.dimensions },
+    { label: "Wheelbase", value: car.wheelbase },
+    { label: "Front Wheel", value: car.frontWheel },
+    { label: "Rear Wheel", value: car.rearWheel },
+    { label: "Front Tire", value: car.frontTire },
+    { label: "Rear Tire", value: car.rearTire },
   ].filter(d => d.value);
 
   return (
@@ -79,12 +91,11 @@ function VehicleDetail({ car }: { car: Vehicle }) {
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="flex flex-col lg:flex-row gap-8">
 
-            {/* ── LEFT COLUMN ── */}
+            {/* LEFT COLUMN */}
             <div className="flex-1 min-w-0">
 
-              {/* Photo Gallery: main image + vertical thumbnail strip */}
+              {/* Gallery: main image + vertical strip */}
               <div className="flex gap-3">
-                {/* Main image */}
                 <div className="flex-1 bg-[#1a1a1a] rounded-xl overflow-hidden relative" style={{ minHeight: 380 }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -93,34 +104,31 @@ function VehicleDetail({ car }: { car: Vehicle }) {
                     className="w-full h-full object-cover"
                     style={{ maxHeight: 480 }}
                   />
-                  {/* Arrow prev */}
                   {allImgUrls.length > 1 && (
                     <>
                       <button onClick={() => setActiveIdx(i => (i - 1 + allImgUrls.length) % allImgUrls.length)}
-                        className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white w-9 h-9 rounded-full flex items-center justify-center text-lg transition-colors">
+                        className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white w-9 h-9 rounded-full flex items-center justify-center text-xl transition-colors">
                         ‹
                       </button>
                       <button onClick={() => setActiveIdx(i => (i + 1) % allImgUrls.length)}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white w-9 h-9 rounded-full flex items-center justify-center text-lg transition-colors">
+                        className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white w-9 h-9 rounded-full flex items-center justify-center text-xl transition-colors">
                         ›
                       </button>
                     </>
                   )}
-                  {/* Photo count */}
                   <div className="absolute bottom-3 left-3 bg-black/60 text-white text-xs px-2.5 py-1 rounded-full">
-                    📷 {activeIdx + 1} / {allImgUrls.length}
+                    {activeIdx + 1} / {allImgUrls.length} photos
                   </div>
                 </div>
 
-                {/* Vertical thumbnail strip */}
+                {/* Vertical thumbnails */}
                 {thumbUrls.length > 1 && (
-                  <div className="flex flex-col gap-2 overflow-y-auto" style={{ maxHeight: 480, width: 100 }}>
+                  <div className="flex flex-col gap-2 overflow-y-auto" style={{ maxHeight: 480, width: 96 }}>
                     {thumbUrls.map((t, i) => (
                       <div key={i} onClick={() => setActiveIdx(i)} className="relative shrink-0 cursor-pointer">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src={t} alt={`Photo ${i + 1}`}
-                          className={`w-full h-16 object-cover rounded-lg border-2 transition-all ${activeIdx === i ? "border-[#FFC107]" : "border-transparent opacity-60 hover:opacity-90"}`} />
-                        {/* +N more overlay on last visible thumb if there are many */}
+                          className={`w-full h-16 object-cover rounded-lg border-2 transition-all ${activeIdx === i ? "border-[#FFC107] opacity-100" : "border-transparent opacity-55 hover:opacity-80"}`} />
                         {i === 3 && thumbUrls.length > 4 && (
                           <div className="absolute inset-0 bg-black/60 rounded-lg flex items-center justify-center text-white text-xs font-bold">
                             +{thumbUrls.length - 4} more
@@ -132,12 +140,13 @@ function VehicleDetail({ car }: { car: Vehicle }) {
                 )}
               </div>
 
-              {/* Vehicle title */}
+              {/* Title */}
               <div className="mt-6">
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="bg-[#FFC107] text-black text-xs font-bold px-2.5 py-1 rounded uppercase tracking-wide">Used</span>
+                  <span className="bg-[#FFC107] text-black text-xs font-bold px-2.5 py-1 rounded uppercase tracking-wide">
+                    {car.condition || "Pre-Owned"}
+                  </span>
                   {car.stockNumber && <span className="text-sm text-gray-400">Stock # {car.stockNumber}</span>}
-                  {car.vin && <span className="text-sm text-gray-400 hidden sm:inline">VIN: {car.vin}</span>}
                 </div>
                 <h1 className="text-3xl font-black text-black leading-tight">
                   {car.year} {car.make} {car.model}{car.trim ? ` ${car.trim}` : ""}
@@ -146,20 +155,17 @@ function VehicleDetail({ car }: { car: Vehicle }) {
 
               {/* Key specs row */}
               {specs.length > 0 && (
-                <div className="flex flex-wrap gap-4 mt-5 py-4 border-y border-gray-200">
+                <div className="flex flex-wrap gap-6 mt-5 py-4 border-y border-gray-200">
                   {specs.map(s => (
-                    <div key={s.label} className="flex items-center gap-2 text-sm">
-                      <span className="text-lg">{s.icon}</span>
-                      <div>
-                        <p className="text-xs text-gray-400 uppercase tracking-wide leading-none">{s.label}</p>
-                        <p className="font-bold text-black">{s.value}</p>
-                      </div>
+                    <div key={s.label}>
+                      <p className="text-xs text-gray-400 uppercase tracking-wide">{s.label}</p>
+                      <p className="font-bold text-black text-sm">{s.value}</p>
                     </div>
                   ))}
                 </div>
               )}
 
-              {/* Vehicle Details Table */}
+              {/* Vehicle Information Table */}
               {details.length > 0 && (
                 <div className="mt-8">
                   <h2 className="text-xl font-bold text-black mb-1">Vehicle Information</h2>
@@ -167,9 +173,10 @@ function VehicleDetail({ car }: { car: Vehicle }) {
                   <div className="bg-white rounded-xl shadow-sm overflow-hidden">
                     <div className="grid grid-cols-1 sm:grid-cols-2">
                       {details.map((d, i) => (
-                        <div key={d.label} className={`flex justify-between px-5 py-3 text-sm border-b border-gray-100 ${i % 4 < 2 ? "bg-white" : "bg-gray-50"}`}>
-                          <span className="font-semibold text-gray-500">{d.label}</span>
-                          <span className="text-black font-medium text-right ml-4">{d.value}</span>
+                        <div key={d.label}
+                          className={`flex justify-between px-5 py-3 text-sm border-b border-gray-100 last:border-0 ${i % 2 === 0 ? "bg-white" : "bg-gray-50"}`}>
+                          <span className="font-semibold text-gray-500 shrink-0 mr-4">{d.label}</span>
+                          <span className="text-black font-medium text-right">{d.value}</span>
                         </div>
                       ))}
                     </div>
@@ -186,7 +193,7 @@ function VehicleDetail({ car }: { car: Vehicle }) {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-8">
                       {car.features.map((f) => (
                         <div key={f} className="flex items-center gap-2 text-sm text-gray-700">
-                          <span className="text-[#FFC107] font-black">✓</span>
+                          <span className="text-[#FFC107] font-black text-base">&#10003;</span>
                           {f}
                         </div>
                       ))}
@@ -243,20 +250,19 @@ function VehicleDetail({ car }: { car: Vehicle }) {
                   <p className="text-center text-xs text-gray-500">By submitting you agree to be contacted by GubAutos.</p>
                 </form>
               </div>
-
             </div>
 
-            {/* ── RIGHT SIDEBAR ── */}
+            {/* RIGHT SIDEBAR */}
             <div className="lg:w-80 shrink-0">
               <div className="sticky top-24 space-y-4">
 
                 {/* Price Card */}
                 <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
                   <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">Amount Financed</p>
-                  <p className="text-4xl font-black text-black mb-1">{formatPrice(amountFinanced)}</p>
+                  <p className="text-4xl font-black text-black mb-3">{formatPrice(amountFinanced)}</p>
 
                   {/* Estimated payment */}
-                  <div className="flex items-center justify-between bg-black text-white rounded-lg px-4 py-2.5 mb-4">
+                  <div className="flex items-center justify-between bg-black text-white rounded-lg px-4 py-3 mb-4">
                     <span className="text-xs font-bold uppercase tracking-wide">Estimated Payment</span>
                     <span className="font-black text-lg">${monthly}<span className="text-sm font-normal">/mo.</span></span>
                   </div>
@@ -265,24 +271,26 @@ function VehicleDetail({ car }: { car: Vehicle }) {
                   <div className="space-y-2 text-sm border-t border-gray-100 pt-4 mb-5">
                     <div className="flex justify-between">
                       <span className="text-gray-500">Price</span>
-                      <span className="font-semibold text-black">{formatPrice(car.price)}</span>
+                      <span className="font-semibold">{formatPrice(car.price)}</span>
                     </div>
                     {car.cashDiscount && (
                       <div className="flex justify-between">
-                        <span className="text-gray-500">ℹ️ Cash / trade-in credit</span>
+                        <span className="text-gray-500">Cash / trade-in credit</span>
                         <span className="font-semibold text-red-500">-{formatPrice(car.cashDiscount)}</span>
                       </div>
                     )}
-                    <div className="flex justify-between border-t border-gray-100 pt-2">
-                      <span className="font-bold text-black">ℹ️ Amount financed</span>
-                      <span className="font-black text-black">{formatPrice(amountFinanced)}</span>
+                    <div className="flex justify-between pt-2 border-t border-gray-100 font-bold">
+                      <span>Amount financed</span>
+                      <span>{formatPrice(amountFinanced)}</span>
                     </div>
-                    <p className="text-xs text-gray-400 mt-1">72 mo @ 7.9% APR · Estimate only</p>
+                    <p className="text-xs text-gray-400">72 mo @ 7.9% APR · Estimate only</p>
                   </div>
 
-                  {/* Dealer location */}
-                  <div className="flex items-center gap-2 text-sm text-gray-600 mb-5 pb-4 border-b border-gray-100">
-                    <span className="text-[#FFC107]">📍</span>
+                  {/* Location */}
+                  <div className="flex items-center gap-2 text-sm text-gray-500 mb-5 pb-4 border-b border-gray-100">
+                    <svg className="w-4 h-4 text-[#FFC107] shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                    </svg>
                     <span>482 Rt-9 South, Freehold, NJ</span>
                   </div>
 
@@ -290,15 +298,15 @@ function VehicleDetail({ car }: { car: Vehicle }) {
                   <div className="space-y-3">
                     <a href="tel:+17325550192"
                       className="flex items-center justify-center gap-2 w-full bg-[#FFC107] hover:bg-yellow-400 text-black font-bold py-3.5 rounded-lg text-sm transition-colors uppercase tracking-wide">
-                      🔓 Unlock Manager&apos;s Special
+                      Unlock Manager&apos;s Special
                     </a>
                     <a href="#contact-form"
-                      className="flex items-center justify-center gap-2 w-full border border-gray-200 hover:border-[#FFC107] bg-white text-black font-bold py-3.5 rounded-lg text-sm transition-colors">
-                      ✅ Get Approved
+                      className="flex items-center justify-center gap-2 w-full border border-gray-300 hover:border-[#FFC107] bg-white text-black font-bold py-3.5 rounded-lg text-sm transition-colors">
+                      Get Approved
                     </a>
                     <a href="#contact-form"
-                      className="flex items-center justify-center gap-2 w-full border border-gray-200 hover:border-[#FFC107] bg-white text-black font-bold py-3.5 rounded-lg text-sm transition-colors">
-                      🚗 Schedule a Test Drive
+                      className="flex items-center justify-center gap-2 w-full border border-gray-300 hover:border-[#FFC107] bg-white text-black font-bold py-3.5 rounded-lg text-sm transition-colors">
+                      Schedule a Test Drive
                     </a>
                   </div>
                 </div>
@@ -315,26 +323,25 @@ function VehicleDetail({ car }: { car: Vehicle }) {
                 </div>
 
                 {/* Dealer card */}
-                <div className="bg-white rounded-xl shadow-sm p-5 border border-gray-100 text-sm">
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="w-9 h-9 rounded-full border-2 border-[#FFC107] bg-[#1a1a1a] flex items-center justify-center shrink-0">
+                <div className="bg-white rounded-xl shadow-sm p-5 border border-gray-100">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-full border-2 border-[#FFC107] bg-[#1a1a1a] flex items-center justify-center shrink-0">
                       <span className="text-[#FFC107] font-black text-xs">GA</span>
                     </div>
                     <div>
                       <p className="font-bold text-black text-sm">GubAutos</p>
-                      <p className="text-gray-400 text-xs">Freehold, NJ · ⭐⭐⭐⭐⭐</p>
+                      <p className="text-gray-400 text-xs">Freehold, NJ · 5.0 ★★★★★</p>
                     </div>
                   </div>
                   <div className="space-y-1.5 text-gray-600 text-xs">
-                    <p>📍 482 Rt-9 South, Freehold, NJ 07728</p>
-                    <p>📞 <a href="tel:+17325550192" className="hover:text-[#c9a000]">(732) 555-0192</a></p>
-                    <p>🕐 Mon–Fri 9AM–7PM · Sat 9AM–6PM · Sun 11AM–4PM</p>
+                    <p>482 Rt-9 South, Freehold, NJ 07728</p>
+                    <p><a href="tel:+17325550192" className="hover:text-[#c9a000]">(732) 555-0192</a></p>
+                    <p>Mon–Fri 9AM–7PM &middot; Sat 9AM–6PM &middot; Sun 11AM–4PM</p>
                   </div>
                 </div>
 
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -355,16 +362,13 @@ export default function VehicleDetailPage({ params }: { params: Promise<{ slug: 
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#F5F5F5]">
         <div className="text-center text-gray-400">
-          <div className="text-5xl mb-4 animate-pulse">🚗</div>
-          <p className="font-semibold">Loading vehicle...</p>
+          <div className="text-3xl mb-3 animate-pulse">Loading...</div>
         </div>
       </div>
     );
   }
 
-  if (car === null) {
-    notFound();
-  }
+  if (car === null) notFound();
 
   return <VehicleDetail car={car} />;
 }
