@@ -151,7 +151,7 @@ export default async function InventoryPage({
           {/* Top bar */}
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
             <h1 className="text-xl font-bold text-black">
-              {cars.length} {style ? `${style}s` : "vehicles"} available{style ? "" : " in Freehold, NJ"}
+              {cars.length} {style ? `${style}s` : "vehicles"} available{style ? "" : " in Bucks County & Philadelphia"}
             </h1>
             <div className="flex items-center gap-2 border border-gray-200 rounded-lg px-4 py-2 bg-white text-sm text-gray-600">
               <span>Sort:</span>

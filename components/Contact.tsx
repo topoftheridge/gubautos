@@ -16,7 +16,7 @@ export default function Contact() {
               </svg>
             </div>
             <h3 className="font-bold text-lg mb-3 text-black">Location</h3>
-            <p className="text-gray-600">482 Rt-9 South<br />Freehold, NJ 07728</p>
+            <p className="text-gray-600">Bucks County, PA</p>
             <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer"
               className="inline-block mt-4 text-sm font-semibold text-[#1d4ed8] hover:underline">
               Get Directions &rarr;

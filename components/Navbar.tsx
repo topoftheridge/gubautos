@@ -16,7 +16,7 @@ export default function Navbar() {
               <svg className="w-3.5 h-3.5 text-[#1E3A8A] shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
               </svg>
-              482 Rt-9 South, Freehold, NJ 07728
+              Bucks County, PA
             </a>
             <a href="tel:+17325550192" className="flex items-center gap-1.5 hover:text-[#1E3A8A] transition-colors">
               <svg className="w-3.5 h-3.5 text-[#1E3A8A] shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -77,7 +77,7 @@ export default function Navbar() {
         {/* Mobile menu */}
         {open && (
           <div className="md:hidden bg-[#0f172a] px-6 pb-4 space-y-1 text-sm font-medium">
-            <p className="text-gray-500 text-xs pt-2 pb-1">482 Rt-9 South, Freehold, NJ · (732) 555-0192</p>
+            <p className="text-gray-500 text-xs pt-2 pb-1">Bucks County, PA · (732) 555-0192</p>
             <Link href="/inventory" className="block py-2.5 border-b border-white/10 hover:text-[#1E3A8A]" onClick={() => setOpen(false)}>Search Inventory</Link>
             <Link href="/inventory" className="block py-2.5 border-b border-white/10 hover:text-[#1E3A8A]" onClick={() => setOpen(false)}>Inventory</Link>
             <Link href="#financing" className="block py-2.5 border-b border-white/10 hover:text-[#1E3A8A]" onClick={() => setOpen(false)}>Financing</Link>

@@ -291,14 +291,14 @@ function VehicleDetail({ car }: { car: Vehicle }) {
                     <svg className="w-4 h-4 text-[#1E3A8A] shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                     </svg>
-                    <span>482 Rt-9 South, Freehold, NJ</span>
+                    <span>Bucks County, PA</span>
                   </div>
 
                   {/* CTAs */}
                   <div className="space-y-3">
                     <a href="tel:+17325550192"
                       className="flex items-center justify-center gap-2 w-full bg-[#1E3A8A] hover:bg-blue-700 text-white font-bold py-3.5 rounded-lg text-sm transition-colors uppercase tracking-wide">
-                      Unlock Manager&apos;s Special
+                      Call For Details
                     </a>
                     <a href="#contact-form"
                       className="flex items-center justify-center gap-2 w-full border border-gray-300 hover:border-[#1E3A8A] bg-white text-black font-bold py-3.5 rounded-lg text-sm transition-colors">
@@ -330,11 +330,11 @@ function VehicleDetail({ car }: { car: Vehicle }) {
                     </div>
                     <div>
                       <p className="font-bold text-black text-sm">GubMotors</p>
-                      <p className="text-gray-400 text-xs">Freehold, NJ · 5.0 ★★★★★</p>
+                      <p className="text-gray-400 text-xs">Bucks County, PA · 5.0 ★★★★★</p>
                     </div>
                   </div>
                   <div className="space-y-1.5 text-gray-600 text-xs">
-                    <p>482 Rt-9 South, Freehold, NJ 07728</p>
+                    <p>Bucks County, PA</p>
                     <p><a href="tel:+17325550192" className="hover:text-[#1d4ed8]">(732) 555-0192</a></p>
                     <p>Mon–Fri 9AM–7PM &middot; Sat 9AM–6PM &middot; Sun 11AM–4PM</p>
                   </div>

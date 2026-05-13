@@ -15,7 +15,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm leading-relaxed">
-              Quality pre-owned vehicles with fast financing. Serving Freehold, NJ and surrounding areas.
+              Quality pre-owned vehicles with fast financing. Serving Bucks County & Philadelphia area.
             </p>
           </div>
 
@@ -43,7 +43,7 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold text-sm uppercase tracking-wide mb-4 border-b border-[#1E3A8A] pb-2">Contact</h4>
             <ul className="space-y-2 text-sm">
-              <li>482 Rt-9 South, Freehold, NJ 07728</li>
+              <li>Bucks County, PA</li>
               <li><a href="tel:+17325550192" className="hover:text-[#1E3A8A]">(732) 555-0192</a></li>
               <li>Mon–Sat 9AM–7PM &middot; Sun 11AM–4PM</li>
             </ul>
@@ -51,7 +51,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-6 text-center text-xs text-gray-400">
-          &copy; {new Date().getFullYear()} GubMotors. All rights reserved. &middot; Used Car Dealer — Freehold, NJ
+          &copy; {new Date().getFullYear()} GubMotors. All rights reserved. &middot; Used Car Dealer — Bucks County & Philadelphia
         </div>
       </div>
     </footer>

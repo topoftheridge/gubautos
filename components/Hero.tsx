@@ -11,7 +11,7 @@ export default function Hero() {
     >
       <div className="relative z-10 text-center max-w-3xl mx-auto px-6 py-20">
         <h1 className="text-5xl md:text-6xl font-bold italic leading-tight mb-5" style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}>
-          Your trusted source for quality used cars in Freehold, NJ
+          Your trusted source for quality used cars in Bucks County & Philadelphia
         </h1>
         <p className="text-xl md:text-2xl font-semibold mb-10 text-white/80">
           Explore a diverse range of pre-owned vehicles
@@ -25,7 +25,7 @@ export default function Hero() {
           <input
             type="text"
             placeholder="Search by make, model, or feature..."
-            className="w-full h-14 pl-12 pr-36 rounded-lg text-gray-800 text-base shadow-2xl focus:outline-none focus:ring-2 focus:ring-[#1E3A8A]"
+            className="w-full h-14 pl-12 pr-36 rounded-lg bg-white text-gray-800 text-base shadow-2xl focus:outline-none focus:ring-2 focus:ring-[#1E3A8A]"
           />
           <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#1E3A8A] hover:bg-blue-700 text-white font-bold px-6 py-2.5 rounded text-sm uppercase tracking-wide transition-colors">
             Search
