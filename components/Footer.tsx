@@ -5,15 +5,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
           {/* Brand */}
           <div className="md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-full border-2 border-[#1E3A8A] flex items-center justify-center bg-[#0f172a] shrink-0">
-                <span className="text-[#1E3A8A] font-black text-sm">GM</span>
-              </div>
-              <div className="leading-none">
-                <div className="text-[#1E3A8A] font-black text-lg">GUB</div>
-                <div className="text-white font-black text-lg -mt-0.5">MOTORS</div>
-              </div>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/gusmotorsheader.png" alt="Gub Motors" className="h-12 w-auto object-contain mb-4 brightness-0 invert" />
             <p className="text-sm leading-relaxed">
               Quality pre-owned vehicles with fast financing. Serving Bucks County & Philadelphia area.
             </p>

@@ -36,14 +36,9 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full border-2 border-[#1E3A8A] flex items-center justify-center bg-[#0f172a] shrink-0">
-                <span className="text-[#1E3A8A] font-black text-base">GM</span>
-              </div>
-              <div className="leading-none">
-                <div className="text-[#1E3A8A] font-black text-xl tracking-wide">GUB</div>
-                <div className="text-white font-black text-xl tracking-wide -mt-0.5">MOTORS</div>
-              </div>
+            <Link href="/">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/gusmotorsheader.png" alt="Gub Motors" className="h-14 w-auto object-contain" />
             </Link>
 
             {/* Desktop nav */}
