@@ -6,7 +6,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/gusmotorsheader.png" alt="Gub Motors" className="h-12 w-auto object-contain mb-4 brightness-0 invert" />
+            <img src="/gusmotorsheader.png" alt="Gub Motors" className="h-12 w-auto object-contain mb-4" />
             <p className="text-sm leading-relaxed">
               Quality pre-owned vehicles with fast financing. Serving Bucks County & Philadelphia area.
             </p>

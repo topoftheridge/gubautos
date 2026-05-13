@@ -1,8 +1,8 @@
 const stats = [
-  { value: "200+", label: "Vehicles Available" },
-  { value: "500+", label: "5-Star Reviews" },
-  { value: "40-Mile", label: "Free Delivery Radius" },
-  { value: "40+", label: "Financing Sources" },
+  { value: "—", label: "Vehicles Available" },
+  { value: "—", label: "5-Star Reviews" },
+  { value: "—", label: "Free Delivery Radius" },
+  { value: "—", label: "Financing Sources" },
 ];
 
 export default function Stats() {
