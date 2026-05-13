@@ -3,7 +3,7 @@ export default function Hero() {
     <section
       className="relative flex items-center justify-center text-white"
       style={{
-        minHeight: "560px",
+        minHeight: "660px",
         backgroundImage: `linear-gradient(rgba(15,23,42,0.65), rgba(15,23,42,0.65)), url('/gubmotorhero.png')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
