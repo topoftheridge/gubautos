@@ -130,10 +130,10 @@ export default async function AboutPage() {
       <section className="bg-[#0f172a] text-white py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-[#1E3A8A] text-sm font-semibold uppercase tracking-widest mb-3">Our Story</p>
-          <h1 className="text-4xl md:text-5xl font-bold mb-5 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 leading-tight">
             Built on Trust.<br />Driven by Community.
           </h1>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
             Since 2008, GubMotors has been putting Bucks County & Philadelphia families behind the wheel of quality pre-owned vehicles — no games, no pressure, just good cars and honest deals.
           </p>
         </div>
@@ -220,7 +220,7 @@ export default async function AboutPage() {
             <div className="h-1 w-32 bg-[#1E3A8A] rounded mx-auto mb-4" />
             <p className="text-gray-500 max-w-xl mx-auto">Car buying tips, financing guides, and local dealer news — straight from the GubMotors team.</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {blogCards.map((post, i) => (
               <Link key={i} href={post.slug} className="group bg-white rounded-xl border border-gray-100 overflow-hidden hover:border-[#1E3A8A] hover:shadow-md transition-all flex flex-col">
                 <div className="h-44 bg-[#1e293b] overflow-hidden flex items-center justify-center">
@@ -253,7 +253,7 @@ export default async function AboutPage() {
       {/* ── CTA ── */}
       <section className="bg-[#1E3A8A] py-16 px-6 text-center">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-4">Ready to Find Your Next Car?</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Ready to Find Your Next Car?</h2>
           <p className="text-blue-200 mb-8">Browse 200+ vehicles in our Bucks County inventory. All credit welcome, financing on-site.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/inventory" className="bg-white text-[#1E3A8A] font-bold px-8 py-3 rounded hover:bg-gray-100 transition-all">

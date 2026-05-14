@@ -69,13 +69,13 @@ function estimateReadTime(body: unknown[]): number {
 const portableComponents = {
   block: {
     h2: ({ children }: { children?: React.ReactNode }) => (
-      <h2 className="text-2xl font-bold text-black mt-10 mb-4 leading-snug">{children}</h2>
+      <h2 className="text-xl sm:text-2xl font-bold text-black mt-8 sm:mt-10 mb-3 sm:mb-4 leading-snug">{children}</h2>
     ),
     h3: ({ children }: { children?: React.ReactNode }) => (
-      <h3 className="text-xl font-bold text-black mt-8 mb-3">{children}</h3>
+      <h3 className="text-lg sm:text-xl font-bold text-black mt-6 sm:mt-8 mb-2 sm:mb-3">{children}</h3>
     ),
     normal: ({ children }: { children?: React.ReactNode }) => (
-      <p className="text-gray-700 leading-relaxed mb-5 text-base">{children}</p>
+      <p className="text-gray-700 leading-relaxed mb-4 sm:mb-5 text-sm sm:text-base">{children}</p>
     ),
   },
 };
@@ -143,8 +143,8 @@ export default async function BlogPostPage({ params }: Props) {
           <img
             src={heroImage}
             alt={post.title}
-            className="w-full object-cover"
-            style={{ maxHeight: 520 }}
+            className="w-full object-cover object-center"
+            style={{ maxHeight: 520, minHeight: 200 }}
           />
         </div>
       ) : (
@@ -152,7 +152,7 @@ export default async function BlogPostPage({ params }: Props) {
       )}
 
       {/* Article Header */}
-      <div className="bg-white border-b border-gray-100 py-10 px-6">
+      <div className="bg-white border-b border-gray-100 py-7 sm:py-10 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <Link
             href="/blog"
@@ -169,21 +169,21 @@ export default async function BlogPostPage({ params }: Props) {
                 {formatDate(post.publishedAt)} · {readTime} min read
               </p>
             )}
-            <h1 className="text-3xl md:text-4xl font-bold text-black leading-tight mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black leading-tight mb-4">
               {post.title}
             </h1>
             {post.excerpt && (
-              <p className="text-gray-500 text-lg leading-relaxed">{post.excerpt}</p>
+              <p className="text-gray-500 text-base sm:text-lg leading-relaxed">{post.excerpt}</p>
             )}
           </div>
         </div>
       </div>
 
       {/* Article Body + Sidebar */}
-      <div className="bg-gray-50 py-12 px-6">
+      <div className="bg-gray-50 py-8 sm:py-12 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto flex gap-12 items-start">
           {/* Main Content */}
-          <article className="flex-1 min-w-0 bg-white rounded-xl border border-gray-100 p-8 md:p-12">
+          <article className="flex-1 min-w-0 bg-white rounded-xl border border-gray-100 p-5 sm:p-8 md:p-12">
             {post.body ? (
               <PortableText
                 value={post.body as Parameters<typeof PortableText>[0]["value"]}
@@ -309,10 +309,10 @@ export default async function BlogPostPage({ params }: Props) {
 
       {/* More Articles Strip */}
       {relatedPosts.length > 0 && (
-        <section className="bg-white py-14 px-6 border-t border-gray-100">
+        <section className="bg-white py-10 sm:py-14 px-4 sm:px-6 border-t border-gray-100">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-2xl font-bold text-black mb-8">More from the Blog</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <h2 className="text-xl sm:text-2xl font-bold text-black mb-6 sm:mb-8">More from the Blog</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {relatedPosts.map((rp) => {
                 const cardImg = rp.mainImage
                   ? urlBuilder.image(rp.mainImage).width(800).height(450).quality(85).url()

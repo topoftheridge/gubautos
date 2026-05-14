@@ -116,8 +116,8 @@ export default async function BlogPage() {
       {/* Header */}
       <section className="bg-[#0f172a] text-white py-16 px-6 text-center">
         <p className="text-[#1E3A8A] text-sm font-semibold uppercase tracking-widest mb-3">GubMotors</p>
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">The Blog</h1>
-        <p className="text-gray-400 text-lg max-w-xl mx-auto">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">The Blog</h1>
+        <p className="text-gray-400 text-base sm:text-lg max-w-xl mx-auto">
           Car buying guides, financing tips, and dealership news — written for real people in Bucks County & Philadelphia.
         </p>
       </section>
