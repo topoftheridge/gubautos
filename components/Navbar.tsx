@@ -55,7 +55,7 @@ export default function Navbar() {
               <Link href="#contact" className="hover:text-[#1E3A8A] transition-colors">Trade-In</Link>
               <Link href="/about" className="hover:text-[#1E3A8A] transition-colors">About Us</Link>
               <Link href="/blog" className="hover:text-[#1E3A8A] transition-colors">Blog</Link>
-              <Link href="#contact" className="hover:text-[#1E3A8A] transition-colors">Contact</Link>
+              <Link href="/contact" className="hover:text-[#1E3A8A] transition-colors">Contact</Link>
             </div>
 
             {/* Mobile hamburger */}
@@ -80,7 +80,7 @@ export default function Navbar() {
             <Link href="#contact" className="block py-2.5 border-b border-white/10 hover:text-[#1E3A8A]" onClick={() => setOpen(false)}>Trade-In</Link>
             <Link href="/about" className="block py-2.5 border-b border-white/10 hover:text-[#1E3A8A]" onClick={() => setOpen(false)}>About Us</Link>
             <Link href="/blog" className="block py-2.5 border-b border-white/10 hover:text-[#1E3A8A]" onClick={() => setOpen(false)}>Blog</Link>
-            <Link href="#contact" className="block py-2.5 hover:text-[#1E3A8A]" onClick={() => setOpen(false)}>Contact</Link>
+            <Link href="/contact" className="block py-2.5 hover:text-[#1E3A8A]" onClick={() => setOpen(false)}>Contact</Link>
           </div>
         )}
       </nav>

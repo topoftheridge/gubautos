@@ -53,6 +53,7 @@ export default function Footer() {
               <li>Bucks County, PA</li>
               <li><a href="tel:+17325550192" className="hover:text-[#1E3A8A]">(732) 555-0192</a></li>
               <li>Mon–Sat 9AM–7PM &middot; Sun 11AM–4PM</li>
+              <li className="pt-1"><a href="/contact" className="hover:text-[#1E3A8A] font-semibold text-white">Send a Message →</a></li>
             </ul>
           </div>
         </div>
