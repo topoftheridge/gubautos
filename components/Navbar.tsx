@@ -16,6 +16,7 @@ const ABOUT_LINKS = [
   { label: "Our History", href: "/about#history" },
   { label: "Meet the Team", href: "/about#team" },
   { label: "Why GubMotors?", href: "/about#why" },
+  { label: "Blog", href: "/blog" },
 ];
 
 function ChevronDown() {
@@ -150,7 +151,6 @@ export default function Navbar() {
                 )}
               </div>
 
-              <Link href="/blog" className="hover:text-[#1E3A8A] transition-colors">Blog</Link>
               <Link href="/contact" className="hover:text-[#1E3A8A] transition-colors">Contact</Link>
             </div>
 
@@ -232,7 +232,6 @@ export default function Navbar() {
               )}
             </div>
 
-            <Link href="/blog" className="block py-2.5 border-b border-white/10 hover:text-[#1E3A8A]" onClick={() => setMobileOpen(false)}>Blog</Link>
             <Link href="/contact" className="block py-2.5 hover:text-[#1E3A8A]" onClick={() => setMobileOpen(false)}>Contact</Link>
           </div>
         )}
