@@ -1,2 +1,4 @@
 import { vehicle } from "./vehicle";
-export const schemaTypes = [vehicle];
+import { post } from "./post";
+
+export const schemaTypes = [vehicle, post];

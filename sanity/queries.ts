@@ -100,3 +100,49 @@ export async function getVehiclesByFilter(bodyStyle?: string): Promise<Vehicle[]
     bodyStyle ? { bodyStyle } : {}
   );
 }
+
+// ─── Blog Posts ───────────────────────────────────────────────────────────────
+
+export type Post = {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  publishedAt?: string;
+  excerpt?: string;
+  mainImage?: { asset: { _ref: string } };
+  body?: unknown[];
+  seoTitle?: string;
+  seoDescription?: string;
+};
+
+const POST_FIELDS = `
+  _id, title, slug, publishedAt, excerpt, mainImage, body, seoTitle, seoDescription
+`;
+
+export async function getAllPosts(): Promise<Post[]> {
+  return client.fetch(
+    `*[_type == "post" && defined(publishedAt)] | order(publishedAt desc) { ${POST_FIELDS} }`,
+    {},
+    { next: { revalidate: 60 } }
+  );
+}
+
+export async function getLatestPosts(count = 3): Promise<Post[]> {
+  return client.fetch(
+    `*[_type == "post" && defined(publishedAt)] | order(publishedAt desc)[0...$count] { ${POST_FIELDS} }`,
+    { count },
+    { next: { revalidate: 60 } }
+  );
+}
+
+export async function getPostBySlug(slug: string): Promise<Post | null> {
+  return client.fetch(
+    `*[_type == "post" && slug.current == $slug][0] { ${POST_FIELDS} }`,
+    { slug },
+    { next: { revalidate: 60 } }
+  );
+}
+
+export async function getAllPostSlugs(): Promise<{ slug: { current: string } }[]> {
+  return client.fetch(`*[_type == "post" && defined(publishedAt)] { slug }`);
+}

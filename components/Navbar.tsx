@@ -53,7 +53,8 @@ export default function Navbar() {
               <Link href="/inventory" className="hover:text-[#1E3A8A] transition-colors">Inventory</Link>
               <Link href="#financing" className="hover:text-[#1E3A8A] transition-colors">Financing</Link>
               <Link href="#contact" className="hover:text-[#1E3A8A] transition-colors">Trade-In</Link>
-              <Link href="#why-us" className="hover:text-[#1E3A8A] transition-colors">About Us</Link>
+              <Link href="/about" className="hover:text-[#1E3A8A] transition-colors">About Us</Link>
+              <Link href="/blog" className="hover:text-[#1E3A8A] transition-colors">Blog</Link>
               <Link href="#contact" className="hover:text-[#1E3A8A] transition-colors">Contact</Link>
             </div>
 
@@ -77,7 +78,8 @@ export default function Navbar() {
             <Link href="/inventory" className="block py-2.5 border-b border-white/10 hover:text-[#1E3A8A]" onClick={() => setOpen(false)}>Inventory</Link>
             <Link href="#financing" className="block py-2.5 border-b border-white/10 hover:text-[#1E3A8A]" onClick={() => setOpen(false)}>Financing</Link>
             <Link href="#contact" className="block py-2.5 border-b border-white/10 hover:text-[#1E3A8A]" onClick={() => setOpen(false)}>Trade-In</Link>
-            <Link href="#why-us" className="block py-2.5 border-b border-white/10 hover:text-[#1E3A8A]" onClick={() => setOpen(false)}>About Us</Link>
+            <Link href="/about" className="block py-2.5 border-b border-white/10 hover:text-[#1E3A8A]" onClick={() => setOpen(false)}>About Us</Link>
+            <Link href="/blog" className="block py-2.5 border-b border-white/10 hover:text-[#1E3A8A]" onClick={() => setOpen(false)}>Blog</Link>
             <Link href="#contact" className="block py-2.5 hover:text-[#1E3A8A]" onClick={() => setOpen(false)}>Contact</Link>
           </div>
         )}
