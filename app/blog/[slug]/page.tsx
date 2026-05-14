@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     post.excerpt ??
     "Read the latest from the GubMotors blog — Bucks County & Philadelphia used car tips and news.";
   const imageUrl = post.mainImage
-    ? urlBuilder.image(post.mainImage).width(1200).height(630).url()
+    ? urlBuilder.image(post.mainImage).width(1200).height(630).quality(90).url()
     : undefined;
 
   return {
@@ -90,7 +90,7 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   const heroImage = post.mainImage
-    ? urlBuilder.image(post.mainImage).width(1400).height(580).fit("crop").url()
+    ? urlBuilder.image(post.mainImage).width(1400).height(580).quality(90).url()
     : null;
 
   const readTime = post.body ? estimateReadTime(post.body as unknown[]) : 3;
@@ -238,7 +238,7 @@ export default async function BlogPostPage({ params }: Props) {
                 <ul className="space-y-4">
                   {relatedPosts.map((rp) => {
                     const thumb = rp.mainImage
-                      ? urlBuilder.image(rp.mainImage).width(120).height(80).fit("crop").url()
+                      ? urlBuilder.image(rp.mainImage).width(160).height(110).quality(85).url()
                       : null;
                     return (
                       <li key={rp._id}>
@@ -315,7 +315,7 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {relatedPosts.map((rp) => {
                 const cardImg = rp.mainImage
-                  ? urlBuilder.image(rp.mainImage).width(600).height(340).fit("crop").url()
+                  ? urlBuilder.image(rp.mainImage).width(800).height(450).quality(85).url()
                   : null;
                 return (
                   <Link

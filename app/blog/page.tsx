@@ -91,7 +91,7 @@ export default async function BlogPage() {
           excerpt: p.excerpt ?? "",
           slug: `/blog/${p.slug.current}`,
           date: p.publishedAt ?? null,
-          image: p.mainImage ? urlBuilder.image(p.mainImage).width(600).height(340).url() : null,
+          image: p.mainImage ? urlBuilder.image(p.mainImage).width(800).height(450).quality(85).url() : null,
         }))
       : PLACEHOLDER_POSTS;
 
