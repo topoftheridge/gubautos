@@ -316,22 +316,30 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* Map placeholder strip */}
-      <div className="bg-[#1e293b] h-64 flex items-center justify-center text-gray-500 text-sm">
-        <div className="text-center">
-          <svg className="w-10 h-10 text-[#1E3A8A] mx-auto mb-3 opacity-60" fill="currentColor" viewBox="0 0 20 20">
+      {/* Google Maps embed — Bucks County, PA */}
+      <div className="relative w-full" style={{ height: 420 }}>
+        <iframe
+          title="GubMotors — Bucks County, PA"
+          src="https://maps.google.com/maps?q=Bucks+County,+Pennsylvania&t=&z=10&ie=UTF8&iwloc=&output=embed"
+          width="100%"
+          height="100%"
+          style={{ border: 0, display: "block" }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+        {/* Overlay badge */}
+        <a
+          href="https://maps.google.com/?q=Bucks+County,+Pennsylvania"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-[#0f172a] text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-lg flex items-center gap-2 hover:bg-[#1E3A8A] transition-colors"
+        >
+          <svg className="w-4 h-4 text-[#1E3A8A]" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
           </svg>
-          <p className="text-gray-400 mb-2 font-medium">Bucks County, PA</p>
-          <a
-            href="https://maps.google.com/?q=Bucks+County+PA"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#1E3A8A] text-sm font-semibold hover:underline"
-          >
-            Open in Google Maps →
-          </a>
-        </div>
+          Open in Google Maps
+        </a>
       </div>
 
       <Footer />
